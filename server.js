@@ -5,7 +5,7 @@ const User = require('./models/user');
 // const path = require('path');
 const config = require('./config/key');
 const app = express();
-import './client/build/index.html'
+//import './client/build/index.html'
 
 
 const baseDir = './client/build/'
