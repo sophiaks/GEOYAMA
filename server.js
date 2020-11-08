@@ -2,21 +2,19 @@ const { response } = require('express');
 const express = require('express');
 const mongoose = require('mongoose');
 const User = require('./models/user');
-const path = require('path');
+// const path = require('path');
 const config = require('./config/key');
 const app = express();
 
-//const baseDir = path.join(__dirname, './client/build/', 'build');
-// app.use(express.static(buildPath));
 
-const baseDir = './client/'
-app.use(express.static('${baseDir}'))
-//app.get('/', (req, res) => res.sendfile('index.html' , { root : baseDir } ))
+// const baseDir = './client/'
+// app.use(express.static('${baseDir}'))
+// app.get('/', (req, res) => res.sendfile('index.html' , { root : baseDir } ))
 
 
-app.get('/*', (req, res) => {
-    res.sendFile(path.join(__dirname, 'build', 'index.html'));
-  });
+// app.get('/*', (req, res) => {
+//     res.sendFile(path.join(__dirname, 'build', 'index.html'));
+//   });
 
 app.use(express.urlencoded({ extended: false }))
 app.use(express.json({ extended: false }))
