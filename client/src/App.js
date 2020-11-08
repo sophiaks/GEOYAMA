@@ -5,6 +5,7 @@ import Cadastro from './components/js/cadastro'
 import Login from './components/js/login'
 import Ip from './components/js/ip'
 import Map from './components/js/ip_info'
+import Historico from './components/js/historico'
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route exact path="/login" component={Login}/>
           <Route exact path="/ip" component={Ip}/>
           <Route exact path="/map" component={Map}/>
+          <Route exact path="/historico" component={Historico}/>
         </Switch>
       </div>
     </BrowserRouter>

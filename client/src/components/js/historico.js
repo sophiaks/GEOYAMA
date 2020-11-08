@@ -1,9 +1,9 @@
-var hist = JSON.parse(localStorage.getItem("loggedUserHistory"));
 import '../css/App.css'
 const { Component } = require("react");
+var hist = JSON.parse(localStorage.getItem("loggedUserHistory"));
 
 
-class History extends Component{
+class Historico extends Component{
   constructor(props) {
     super(props);
     this.state = {
@@ -12,16 +12,12 @@ class History extends Component{
     }
   }
 
-  alert = () => {
-    alert("Ooi")
-  }
-
   render() {
     return (
           <div className="login-container">
             <h1>Histórico de IPs de {this.state.loggedUser}</h1>
             <ul>
-                {dict}
+                {this.state.dict}
             </ul>
           </div>
         
@@ -29,4 +25,4 @@ class History extends Component{
   }
 }
 
-export default History;
+export default Historico;

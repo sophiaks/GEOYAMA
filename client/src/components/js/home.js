@@ -11,25 +11,28 @@ const home = () => {
                         1. Login :)
                     </li>
                     <li>
-                        2. Cadastro :)
+                        2. Logout :(
                     </li>
                     <li>
-                        3. Te dar informações à partir do seu IP
+                        3. Cadastro :)
                     </li>
                     <li>
-                        4. Database hosteado em cloud
+                        4. Te dar informações à partir do seu IP
                     </li>
                     <li>
-                        5. Te deixar feliz com um front muito fofo
+                        5. Database hosteado em cloud
                     </li>
                     <li>
-                        6. Te dar informações à partir de um IP qualquer
+                        6.
                     </li>
                     <li>
-                        7. Utlização do Local Storage
+                        7. Te dar informações à partir de um IP qualquer
                     </li>
                     <li>
-                        8. Utilizaçào de um mapa pra apontar o IP
+                        8. Utlização do Local Storage
+                    </li>
+                    <li>
+                        9. Utilizaçào de um mapa pra apontar o IP
                     </li>
                 </ul>
             </h4>

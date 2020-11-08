@@ -42,6 +42,7 @@ class Cadastro extends Component{
         if (Math.floor(res.status/100) === 2) {
           alert("Usuário cadastrado com sucesso!")
           this.props.history.push('/')
+          localStorage.setItem("loggedIn", true);
         }
       }).catch(function(error){
         console.log(error)

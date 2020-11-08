@@ -10,6 +10,10 @@ const countryName = JSON.parse(localStorage.getItem("countryName"));
 const district = JSON.parse(localStorage.getItem("district"));
 const city = JSON.parse(localStorage.getItem("city"));
 
+// function mapTilerProvider (x, y, z, dpr) {
+//     return 'https://api.maptiler.com/maps/hybrid/?key=zMXNO9jnIv8SBOj0ft4e#0.0/0.00000/0.00000'
+//   }
+
 class CustomMap extends Component{
     constructor(props) {
         super(props);
@@ -18,18 +22,28 @@ class CustomMap extends Component{
         }
 
     mapP = (
-        <Map center={[lat, long]} zoom={7} width={900} height={750}>
+        <Map center={[lat, long]} 
+        zoom={7} 
+        width={900} 
+        height={750}
+        
+        >
         <Marker anchor={[lat, long]} payload={1} onClick={({ event, anchor, payload }) => {
-            alert("Selected IP is in " + countryName + ", " + city + ", " + district)
+            alert("IP está em " + countryName + ", " + city + ", " + district)
         }} />
         </Map>
     )
+
+    reload() {
+        window.location.reload();
+    }
 
     render() {
         console.log(localStorage.getItem("longitude"))
         return(
             <div className="map">
-            <h1>Caso a página não tenha carregado automaticamente, dê refresh para ver o mapa</h1>
+            <h1>Caso a página não tenha carregado automaticamente, clique aqui</h1>
+            <button onClick={this.reload} className='btn-log'>RECARREGAR</button>
             {this.mapP}
             </div>
         )

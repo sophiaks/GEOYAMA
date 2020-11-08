@@ -16,10 +16,6 @@ class Login extends Component{
     }
   }
 
-  alert = () => {
-    alert("OI YAMAAAAAAAA")
-  }
-
   onChangeUser(input) {
     this.setState({
       username: input.target.value
@@ -45,14 +41,18 @@ class Login extends Component{
     }).then(res => {
       console.log(res.status)
       if (Math.floor(res.status/100) === 2) {
-        alert("Login feito com sucesso!")
+        alert("Login feito com sucesso!");
+
         localStorage.setItem("loggedIn", true);
+        
         var dict = {
           'loggedUser': this.state.username,
           'list': []
         }
         localStorage.setItem("loggedUserHistory", JSON.stringify(dict));
-        this.props.history.push('/')
+        this.props.history.push('/');
+        window.location.reload();
+
         this.setState({
           username: '',
           password: ''
@@ -61,12 +61,12 @@ class Login extends Component{
       
     }).catch(function(error){
       if(error.response.status === 401) {
-        console.log("Auth error")
-        alert("Erro de autenticação")
+        console.log("Auth error");
+        alert("Erro de autenticação");
       }
       if(error.response.status === 404) {
-        console.log("User not found")
-        alert("Usuário não encontrado!")
+        console.log("User not found");
+        alert("Usuário não encontrado!");
       }
     }); 
   }
