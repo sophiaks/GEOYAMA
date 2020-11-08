@@ -5,16 +5,18 @@ const User = require('./models/user');
 // const path = require('path');
 const config = require('./config/key');
 const app = express();
+import './client/build/index.html'
 
 
-// const baseDir = './client/'
-// app.use(express.static('${baseDir}'))
-// app.get('/', (req, res) => res.sendfile('index.html' , { root : baseDir } ))
+const baseDir = './client/build/'
+app.use(express.static('${baseDir}'))
+app.get('/', (req, res) => res.sendfile('index.html' , { root : baseDir } ))
 
+// GeoYamaRealOficial\client\build\index.html
 
-// app.get('/*', (req, res) => {
-//     res.sendFile(path.join(__dirname, 'build', 'index.html'));
-//   });
+app.get('/*', (req, res) => { 
+    res.sendFile(path.join(__dirname, 'index.html'));
+  });
 
 app.use(express.urlencoded({ extended: false }))
 app.use(express.json({ extended: false }))
