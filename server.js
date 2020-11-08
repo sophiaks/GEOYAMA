@@ -2,27 +2,15 @@ const { response } = require('express');
 const express = require('express');
 const mongoose = require('mongoose');
 const User = require('./models/user');
-// const path = require('path');
 const config = require('./config/key');
 const app = express();
-//import './client/build/index.html'
-
-
-//const baseDir = './client/build/'
-//app.use(express.static('${baseDir}'))
-// app.get('/', (req, res) => res.sendfile('index.html' , { root : baseDir } ))
-
-// GeoYamaRealOficial\client\build\index.html
-
-// app.get('/*', (req, res) => { 
-//     res.sendFile(path.join(__dirname, 'index.html'));
-//   });
 
 app.use(express.urlencoded({ extended: false }))
 app.use(express.json({ extended: false }))
 
-//const dbUrl = require('./config/dev').mongoURI;
-
+if (process.env.NODE_ENV === "production") {
+    app.use(express.static("client/build"));
+  }
 
 const connectDB = async () => {
     try {
