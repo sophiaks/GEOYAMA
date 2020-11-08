@@ -2,20 +2,22 @@ const { response } = require('express');
 const express = require('express');
 const mongoose = require('mongoose');
 const User = require('./models/user');
-const path = require('path');
+//const path = require('path');
+const config = require('./config/key');
 const app = express();
 
-const buildPath = path.join(__dirname, './client', 'build');
-app.use(express.static(buildPath));
+// const buildPath = path.join(__dirname, './client', 'build');
+// app.use(express.static(buildPath));
 
 app.use(express.urlencoded({ extended: false }))
 app.use(express.json({ extended: false }))
 
-const dbUrl = require('./keys').mongoURI;
+//const dbUrl = require('./config/dev').mongoURI;
+
 
 const connectDB = async () => {
     try {
-        await mongoose.connect(dbUrl, {
+        await mongoose.connect(config.mongoURI, {
             useNewUrlParser: true,
             useUnifiedTopology: true,
             useCreateIndex: true, 
