@@ -2,7 +2,7 @@ const { response } = require('express');
 const express = require('express');
 const mongoose = require('mongoose');
 const User = require('./models/user');
-
+const path = require('path');
 const app = express();
 
 const buildPath = path.join(__dirname, './client', 'build');
