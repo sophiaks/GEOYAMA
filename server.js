@@ -68,7 +68,7 @@ app.post("/api/login", (req, res) => {
     });
     });
 
-const Port = 5000;
+const Port = process.env.PORT || 5000;
 
 app.listen( Port, () => {
     console.log("Sevidor rodando na porta " + Port)
