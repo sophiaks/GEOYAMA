@@ -8,7 +8,7 @@ const app = express();
 app.use(express.urlencoded({ extended: false }))
 app.use(express.json({ extended: false }))
 
-const dbUrl = "mongodb+srv://sophiaks:l05ptCc0Pd3jc63k@mern1.kuczx.mongodb.net/teste-da-soso?retryWrites=true&w=majority"
+const dbUrl = require('./keys').mongoURI;
 
 const connectDB = async () => {
     try {
