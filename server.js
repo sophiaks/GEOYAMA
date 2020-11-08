@@ -8,15 +8,15 @@ const app = express();
 //import './client/build/index.html'
 
 
-const baseDir = './client/build/'
-app.use(express.static('${baseDir}'))
+//const baseDir = './client/build/'
+//app.use(express.static('${baseDir}'))
 // app.get('/', (req, res) => res.sendfile('index.html' , { root : baseDir } ))
 
 // GeoYamaRealOficial\client\build\index.html
 
-app.get('/*', (req, res) => { 
-    res.sendFile(path.join(__dirname, 'index.html'));
-  });
+// app.get('/*', (req, res) => { 
+//     res.sendFile(path.join(__dirname, 'index.html'));
+//   });
 
 app.use(express.urlencoded({ extended: false }))
 app.use(express.json({ extended: false }))
