@@ -46,7 +46,17 @@ class Login extends Component{
       console.log(res.status)
       if (Math.floor(res.status/100) === 2) {
         alert("Login feito com sucesso!")
+        localStorage.setItem("loggedIn", true);
+        var dict = {
+          'loggedUser': this.state.username,
+          'list': []
+        }
+        localStorage.setItem("loggedUserHistory", JSON.stringify(dict));
         this.props.history.push('/')
+        this.setState({
+          username: '',
+          password: ''
+        })
       }
       
     }).catch(function(error){
@@ -60,14 +70,6 @@ class Login extends Component{
       }
     }); 
   }
-  //   .then(resp => {
-  //     if(Math.floor(resp.status/100) === 2) {
-  //       localStorage.setItem('loggedIn', true)
-  //     }
-  //     console.log(resp)
-  //     console.log(localStorage.getItem('loggedIn'))
-  //   })
-  // }
 
 
   render() {

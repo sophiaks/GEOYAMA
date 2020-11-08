@@ -47,6 +47,17 @@ export default class Ip extends React.Component{
     async findMyIP() {
     geolocationParams.setIPAddress();
     console.log("IP: " + this.state.ip);
+
+    var hist = JSON.parse(localStorage.getItem("loggedUserHistory"));
+    var list = hist['list'];
+    list.push(this.state.ip);
+    hist['list'] = list;
+    var dict = {
+      'loggedUser': hist['loggedUser'],
+      'list': hist[list]
+    }
+    localStorage.setItem('loggedUserHistory', JSON.stringify(dict))
+
     await ipgeolocationApi.getGeolocation(this.handleResponse, geolocationParams);
     this.setState({
         local: true
