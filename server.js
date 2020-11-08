@@ -5,6 +5,9 @@ const User = require('./models/user');
 
 const app = express();
 
+const buildPath = path.join(__dirname, './client', 'build');
+app.use(express.static(buildPath));
+
 app.use(express.urlencoded({ extended: false }))
 app.use(express.json({ extended: false }))
 
