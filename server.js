@@ -6,10 +6,10 @@ const path = require('path');
 const config = require('./config/key');
 const app = express();
 
-// const buildPath = path.join(__dirname, './client', 'build');
+const baseDir = path.join(__dirname, './client', 'build');
 // app.use(express.static(buildPath));
 
-const baseDir = './client/build/'
+//const baseDir = './client/build/'
 app.use(express.static(`${baseDir}`))
 app.get('/', (req, res) => res.sendfile('index.html' , { root : baseDir } ))
 
