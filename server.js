@@ -10,7 +10,7 @@ const app = express();
 
 const baseDir = './client/build/'
 app.use(express.static('${baseDir}'))
-app.get('/', (req, res) => res.sendfile('index.html' , { root : baseDir } ))
+// app.get('/', (req, res) => res.sendfile('index.html' , { root : baseDir } ))
 
 // GeoYamaRealOficial\client\build\index.html
 
