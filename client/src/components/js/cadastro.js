@@ -41,7 +41,7 @@ class Cadastro extends Component{
         if (Math.floor(res.status/100) === 2) {
           console.log(res.message)
           alert("Usuário cadastrado com sucesso!")
-          this.props.history.push('/')
+          this.props.history.push('/home')
           localStorage.setItem("loggedIn", true);
         }
         if (res.status === 403) {

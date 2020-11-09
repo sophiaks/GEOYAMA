@@ -50,7 +50,7 @@ class Login extends Component{
           'list': []
         }
         localStorage.setItem("loggedUserHistory", JSON.stringify(dict));
-        this.props.history.push('/');
+        this.props.history.push('/home');
         window.location.reload();
 
         this.setState({
