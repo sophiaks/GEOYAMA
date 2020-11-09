@@ -9,6 +9,7 @@ class Login extends Component{
     this.onChangeUser = this.onChangeUser.bind(this);
     this.onChangePassword = this.onChangePassword.bind(this);
     this.doLogin = this.doLogin.bind(this);
+    this.redirectToCadastro = this.redirectToCadastro.bind(this);
     this.state = {
       username: '',
       password: ''
@@ -69,7 +70,10 @@ class Login extends Component{
       }
     }); 
   }
-
+  
+  redirectToCadastro(props) {
+    this.props.history.push('/cadastro')
+  }
 
   render() {
     return (
@@ -96,6 +100,7 @@ class Login extends Component{
             <input className="btn-c" 
             type="button" 
             value="Fazer Cadastro"
+            onClick={this.redirectToCadastro}
             />
           </div>
         

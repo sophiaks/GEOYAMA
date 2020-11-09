@@ -40,20 +40,32 @@ app.get("/", (req, res) => {
 })
 
 app.post("/api/cadastro", async (req, res) => {
-    try {
-        await User.create({
-            username: req.body.username,
-            password: req.body.password
-        });
-        res.json({
-            message: "Cadastro feito com sucesso!"
-        });
-    } catch (error) {
-        console.log(error)
-        res.json({
-            message: "Deu ruim"
-        });
-    }
+    userName = req.body.username
+    User.findOne({username: req.body.username}).then(user => {
+        console.log(req.body.username)
+        if (!user) {
+            try {
+                User.create({
+                    username: req.body.username,
+                    password: req.body.password
+                });
+                console.log("Usuário não existe")
+                res.json({
+                    message: "Cadastro feito com sucesso!"
+                });
+            } catch (error) {
+                console.log(error)
+                res.json({
+                message: "Erro no cadastro"
+                });
+            }
+        }
+        else {
+            console.log("Usuário já existe")
+            res.status(403).json({message: "Esse usuário já existe!"})
+        }
+    });
+    
 });
 
 app.get("/api/users", (req, res) => {

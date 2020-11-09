@@ -14,6 +14,7 @@ class Cadastro extends Component{
         this.onChangeUsername = this.onChangeUsername.bind(this);
         this.onChangePassword = this.onChangePassword.bind(this);
         this.register = this.register.bind(this);
+        this.redirectToLogin = this.redirectToLogin.bind(this);
     }
 
     onChangeUsername(e) {
@@ -30,9 +31,7 @@ class Cadastro extends Component{
           username: this.state.username,
           password: this.state.password
         }
-    
-          console.log(userObject)
-
+        console.log(userObject)
         axios.post('/api/cadastro', userObject , {
           header: {
               "Content-Type": 'application/json'
@@ -40,14 +39,27 @@ class Cadastro extends Component{
       }).then(res => {
         console.log(res.status)
         if (Math.floor(res.status/100) === 2) {
+          console.log(res.message)
           alert("Usuário cadastrado com sucesso!")
           this.props.history.push('/')
           localStorage.setItem("loggedIn", true);
         }
+        if (res.status === 403) {
+          alert("Usuário já existe! Tente novamente.")
+          localStorage.setItem("loggedIn", false);
+        }
       }).catch(function(error){
         console.log(error)
-        alert(error);
+        if(error.response.status === 403) {
+          alert("Usuário já cadastrado!")        
+        }
+        else{alert(error);} 
+          
       });      
+    }
+
+    redirectToLogin(props) {
+      this.props.history.push('/login')
     }
 
 
@@ -75,7 +87,7 @@ class Cadastro extends Component{
             <input type='submit'
             className='btn-c'
             value="Já tem cadastro? Fazer login"
-            //onClick={this.props.history.push('/login')}
+            onClick={this.redirectToLogin}
             />
     </div>
     )
