@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 const User = require('./models/user');
 const config = require('./config/key');
 const app = express();
+const path = require('path');
 
 if (process.env.NODE_ENV === "production") {
     app.use(express.static("client/build"));
